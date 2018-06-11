@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+        <script>
+        // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyAoLrIQXE5stDW0E8VXs_Z1Bh0-OBuyZ5Q",
+                authDomain: "projected-7dc86.firebaseapp.com",
+                databaseURL: "https://projected-7dc86.firebaseio.com",
+                projectId: "projected-7dc86",
+                storageBucket: "projected-7dc86.appspot.com",
+                messagingSenderId: "520555881633"
+            };
+            firebase.initializeApp(config);
+            let url = window.location.href
+            let searchParams = new URLSearchParams(url.search);
+            let id = searchParams.get('id')
+            var qref = firebase.database().ref("survey/"+id)
+        </script>
+    </head>
+    <body>
+        <div id="questions-set">
+            <form class="question" onsubmit="return addQuestion(this)">
+                <input type="text" name="question" placeholder="Insert question here"></input>
+                <button type="submit">Submit</input>
+            </form>
+        </div>
+        <div>
+            <!-- <button id="addBtn" onclick="addForm()">Add more question</button> -->
+        </div>
+        <script>
+            function addQuestion(question){
+                console.log("adding a question");
+                console.log(qref)
+
+                return false
+            }    
+            // function addForm(){
+            //     console.log("adding form")
+            //     $("#questions-set").append(`
+            //         <form class="question" onsubmit="return addQuestion(this)">
+            //             <input type="text" name="question" placeholder="Insert question here"></input>
+            //             <button type="submit">Submit</input>
+            //         </form>
+            //     `)
+            // }
+        </script>
+    </body>
+</html>
