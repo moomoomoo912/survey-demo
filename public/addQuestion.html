@@ -22,7 +22,7 @@
     <body>
         <div id="questions-set">
             <form class="question" onsubmit="return addQuestion(this)">
-                <input type="text" name="question" placeholder="Insert question here"></input>
+                <input id="fillme" type="text" name="question" placeholder="Insert question here"></input>
                 <button type="submit">Submit</input>
             </form>
         </div>
@@ -32,8 +32,12 @@
         <script>
             function addQuestion(question){
                 console.log("adding a question");
-                console.log(qref)
-
+                qref.push({question: question.question});
+                $("#question-set").append(`
+                        <p>Question added</p>
+                `)
+                $("#fillme").val("")
+                console.log("question added")
                 return false
             }    
             // function addForm(){

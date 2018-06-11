@@ -14,7 +14,7 @@ exports.addSurvey = functions.https.onRequest((req,res) => {
     let id = admin.database().ref("survey").push({
         name: req.query.name
     })
-    res.redirect(303,"./addQuestion"+"?id="+id);
+    res.redirect(303,"https://projected-7dc86.firebaseapp.com/addQuestion.html"+"?id="+id);
 });
 
 exports.addQuestion = functions.https.onRequest((req,res) => { 
